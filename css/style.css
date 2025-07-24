@@ -717,6 +717,7 @@ button {
   transform: translateX(-50%) translateY(-70%);
 }
 
+/* Modal window */
 .modal {
   position: absolute;
   top: 50%;
@@ -755,7 +756,9 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--modal-close-btn-bg);
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal__icon {
@@ -784,6 +787,7 @@ button {
   color: #2e2f42;
 }
 
+/* Modal form-input */
 .modal__list {
   display: flex;
   flex-direction: column;
@@ -862,6 +866,80 @@ button {
   color: #8e8f99;
 }
 
+/* Checkbox hidden */
+.click {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.modal__form-checkbox {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.checkbox-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Checkbox visible */
+.modal-chekbox-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  border: 1px solid #2e2f4266;
+  border-radius: 2px;
+  background-color: transparent;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.modal__form-checkbox:hover .modal-chekbox-option,
+.modal__form-checkbox:hover .modal-chekbox-option {
+  border-color: #404bbf;
+}
+
+.checkbox-click-icon {
+  fill: currentColor;
+  color: #fff;
+}
+
+.click:checked + .checkbox-text .modal-chekbox-option {
+  background-color: #404bbf;
+  border-color: #404bbf;
+  color: #f4f4fd;
+}
+
+/* Checkbox text */
+.checkbox-text {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+
+  color: #8e8f99;
+}
+
+.link__privacy-policy {
+  text-decoration: underline;
+  color: #4d5ae5;
+}
+
+/* Modal Send button */
 .modal__send-btn {
   display: block;
   margin: 0 auto;
