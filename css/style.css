@@ -11,7 +11,7 @@
   /* Base transition value */
   --time-transition: 250ms;
   --how-transition-timing-func: cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Logo */
   --logo-first-color: #4d5ae5;
   --logo-second-color: #2e2f42;
@@ -64,6 +64,18 @@
   --portf-item-bg: #ffffff;
   --portf-item-name-color: #2e2f42;
   --portfolio-overlay-bg: #4d5ae5;
+
+  /* Backdrop */
+  --backdrop-bg: rgba(46, 47, 66, 0.4);
+
+  /* Modal window */
+  --modal-bg: rgba(252, 252, 252, 1);
+  --modal-close-btn-bg: rgba(231, 233, 252, 1);
+  --modal-close-icon-color: #2e2f42;
+  --modal-close-btn-active-bg: rgba(64, 75, 191, 1);
+  --modal-close-icon-active-color: #fff;
+  --modal-send-btn-bg: #4d5ae5;
+  --modal-send-btn-hover-bg: #404bbf;
 }
 
 @font-face {
@@ -687,7 +699,7 @@ button {
 
   width: 100%;
   height: 100%;
-  background: rgba(46, 47, 66, 0.4);
+  background: var(--backdrop-bg);
 
   transition:
     opacity var(--time-transition) cubic-bezier(0.4, 0, 0.2, 1),
@@ -712,11 +724,12 @@ button {
 
   transform: translateX(-50%) translateY(-50%);
 
+  padding: 72px 24px 24px 24px;
   width: 408px;
   height: 584px;
 
   border-radius: 4px;
-  background-color: rgba(252, 252, 252, 1);
+  background: var(--modal-bg);
   box-shadow:
     0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12),
@@ -727,7 +740,7 @@ button {
     transform var(--time-transition) cubic-bezier(0.4, 0, 0.2, 1) var(--time-transition);
 }
 
-.modal-btn {
+.modal__close-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -740,20 +753,136 @@ button {
 
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(231, 233, 252, 1);
+  background: var(--modal-close-btn-bg);
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-icon {
+.modal__icon {
   stroke: currentColor;
   fill: currentColor;
+  color: var(--modal-close-icon-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__close-btn:hover,
+.modal__close-btn:focus {
+  border-color: var(--modal-close-btn-active-bg);
+  background: var(--modal-close-btn-active-bg);
+}
+
+.modal__close-btn:hover .modal__icon {
+  color: var(--modal-close-icon-active-color);
+}
+
+.modal__subtitle {
+  text-align: center;
+
+  margin-bottom: 16px;
+
+  font-weight: 500;
   color: #2e2f42;
 }
 
-.modal-btn:active {
-  border: 1px solid rgba(64, 75, 191, 1);
-  background-color: rgba(64, 75, 191, 1);
+.modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-bottom: 8px;
 }
 
-.modal-btn:active .modal-icon {
+.modal__form-label {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+
+  display: block;
+  margin-bottom: 4px;
+
+  color: #8e8f99;
+}
+
+.modal__user-input {
+  position: relative;
+}
+
+.modal__form-input {
+  display: block;
+  width: 100%;
+
+  border-radius: 4px;
+  border: 1px solid #2e2f4266;
+
+  padding: 8px 38px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__form-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  fill: currentColor;
+  color: #2e2f42;
+
+  transform: translateY(-50%) translateX(16px);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__user-input:focus-within .modal__form-icon {
+  color: #4d5ae5;
+}
+
+.modal__form-comment {
+  width: 100%;
+  resize: none;
+
+  border-radius: 4px;
+  border: 1px solid #2e2f4266;
+
+  padding: 8px 16px;
+  margin-bottom: 16px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__form-input:focus,
+.modal__form-comment:focus {
+  border-color: #4d5ae5;
+  outline: none;
+}
+
+.modal__form-comment::placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+
+  color: #8e8f99;
+}
+
+.modal__send-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 16px 66px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+
   color: #ffffff;
+
+  border-radius: 4px;
+  border: none;
+  background: var(--modal-send-btn-bg);
+  box-shadow: 0px 4px 4px 0px #00000026;
+
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__send-btn:hover,
+.modal__send-btn:focus {
+  background: var(--modal-send-btn-hover-bg);
 }
