@@ -203,8 +203,16 @@ img {
 }
 
 button {
+  font-family: inherit;
+  color: currentColor;
+
   padding: 0;
+
   cursor: pointer;
+}
+
+input {
+  font-family: inherit;
 }
 
 /* Page WebStudio */
@@ -840,6 +848,7 @@ button {
 }
 
 .modal__form-comment {
+  display: flex;
   width: 100%;
   resize: none;
 
@@ -866,75 +875,88 @@ button {
   color: #8e8f99;
 }
 
-/* Checkbox hidden */
-.click {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-  padding: 0;
-  border: 0;
-}
-
-.modal__form-checkbox {
+/* Modal Checkbox */
+.checkbox-container {
   display: flex;
+  align-items: center;
+  position: relative;
+
   margin-bottom: 24px;
 }
 
-.checkbox-text {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+/* Checkbox hidden */
+.modal input[type="checkbox"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  opacity: 0;
 }
 
-/* Checkbox visible */
-.modal-chekbox-option {
+/* Checkbox custom */
+.checkbox-custom {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 16px;
   height: 16px;
-  margin-right: 4px;
-  border: 1px solid #2e2f4266;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
   border-radius: 2px;
-  background-color: transparent;
+  border: 1px solid #2e2f4266;
+
   transition:
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   cursor: pointer;
 }
 
-.modal__form-checkbox:hover .modal-chekbox-option,
-.modal__form-checkbox:hover .modal-chekbox-option {
+/* Checkbox custom visible */
+.modal input[type="checkbox"]:checked + .checkbox-custom {
   border-color: #404bbf;
+  background: #404bbf;
 }
 
-.checkbox-click-icon {
+/* Checkbox icon */
+.checkbox-icon {
   fill: currentColor;
-  color: #fff;
+
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.click:checked + .checkbox-text .modal-chekbox-option {
-  background-color: #404bbf;
-  border-color: #404bbf;
+.modal input[type="checkbox"] + .checkbox-custom .checkbox-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal input[type="checkbox"]:checked + .checkbox-custom .checkbox-icon {
+  opacity: 1;
+  visibility: visible;
   color: #f4f4fd;
 }
 
 /* Checkbox text */
 .checkbox-text {
+  margin-left: 24px;
+
   font-size: 12px;
-  line-height: 1.33;
+  line-height: 1.16;
   letter-spacing: 0.04em;
 
   color: #8e8f99;
+
+  cursor: pointer;
 }
 
-.link__privacy-policy {
+.checkbox-text .link-privacy {
   text-decoration: underline;
   color: #4d5ae5;
 }
