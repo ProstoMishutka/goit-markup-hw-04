@@ -51,6 +51,7 @@
             <li><button class="portfolio-button" type="button">Design</button></li>
             <li><button class="portfolio-button" type="button">Marketing</button></li>
           </ul>
+          <!-- Portfolio cards -->
           <ul class="portfolio-list card-set">
             <li class="portfolio-item card-set-item">
               <a class="portfolio-link" href="#">
@@ -247,6 +248,7 @@
     </main>
     <footer class="footer">
       <div class="footer-container container">
+        <!-- Footer logo and text -->
         <div class="footer-logo-text">
           <a class="logo" href="./index.html">Web<span class="logo-second-part">Studio</span></a>
           <p class="footer-text">
@@ -254,6 +256,8 @@
             growth solutions.
           </p>
         </div>
+
+        <!-- Footer social media -->
         <div class="footer-social">
           <h2 class="footer-title">Social media</h2>
           <ul class="footer-list">
@@ -287,6 +291,27 @@
             </li>
           </ul>
         </div>
+
+        <!-- Footer form Subscribe -->
+        <form class="footer__form">
+          <p class="footer__form-subtitle">Subcribe</p>
+          <div class="footer__form-container">
+            <label>
+              <input
+                class="footer__input"
+                type="email"
+                name="subscribe_email"
+                placeholder="E-mail"
+              />
+            </label>
+            <button class="footer__button" type="submit">
+              Subscribe
+              <svg class="footer__form-icon" width="24" height="24" role="img">
+                <use href="./image/icons.svg#send"></use>
+              </svg>
+            </button>
+          </div>
+        </form>
       </div>
     </footer>
   </body>

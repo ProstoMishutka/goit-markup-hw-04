@@ -532,6 +532,7 @@ input {
   display: flex;
 }
 
+/* Footer logo and text */
 .footer-logo-text {
   margin-right: 120px;
 }
@@ -544,6 +545,11 @@ input {
 .footer-text {
   max-width: 264px;
   color: #f4f4fd;
+}
+
+/* Footer social */
+.footer-social {
+  margin-right: 80px;
 }
 
 .footer-title {
@@ -576,6 +582,74 @@ input {
 .footer-icon:hover,
 .footer-icon:focus {
   background-color: var(--social-icon-hover-color);
+}
+
+/* Footer subscribe */
+.footer__form-subtitle {
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  color: #fff;
+}
+
+.footer__form-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer__input {
+  width: 264px;
+  padding: 7px 16px;
+
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  box-shadow: 0px 4px 4px 0px #00000026;
+  background: transparent;
+
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #fff;
+
+  outline: none;
+}
+
+.footer__input::placeholder {
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 8px 24px;
+  border-radius: 4px;
+  border: none;
+
+  background: rgba(77, 90, 229, 1);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+
+  transition: background var(--time-transition) var(--how-transition-timing-func);
+}
+
+.footer__button:hover,
+.footer__button:focus {
+  background: rgba(64, 75, 191, 1);
+}
+
+.footer__form-icon {
+  fill: currentColor;
 }
 
 /* Page Portfolio */
@@ -710,8 +784,8 @@ input {
   background: var(--backdrop-bg);
 
   transition:
-    opacity var(--time-transition) cubic-bezier(0.4, 0, 0.2, 1),
-    visibility var(--time-transition) cubic-bezier(0.4, 0, 0.2, 1);
+    opacity var(--time-transition) var(--how-transition-timing-func),
+    visibility var(--time-transition) var(--how-transition-timing-func);
 }
 
 .backdrop.is-hidden {
@@ -745,8 +819,8 @@ input {
     0px 1px 1px 0px rgba(0, 0, 0, 0.14);
 
   transition:
-    opacity var(--time-transition) cubic-bezier(0.4, 0, 0.2, 1) var(--time-transition),
-    transform var(--time-transition) cubic-bezier(0.4, 0, 0.2, 1) var(--time-transition);
+    opacity var(--time-transition) var(--how-transition-timing-func),
+    transform var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__close-btn {
@@ -765,15 +839,15 @@ input {
   background: var(--modal-close-btn-bg);
 
   transition:
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color var(--time-transition) var(--how-transition-timing-func),
+    background var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__icon {
   stroke: currentColor;
   fill: currentColor;
   color: var(--modal-close-icon-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__close-btn:hover,
@@ -828,7 +902,7 @@ input {
 
   padding: 8px 38px;
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__form-icon {
@@ -840,7 +914,7 @@ input {
   color: #2e2f42;
 
   transform: translateY(-50%) translateX(16px);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__user-input:focus-within .modal__form-icon {
@@ -858,7 +932,7 @@ input {
   padding: 8px 16px;
   margin-bottom: 16px;
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__form-input:focus,
@@ -910,8 +984,8 @@ input {
   border: 1px solid #2e2f4266;
 
   transition:
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-color var(--time-transition) var(--how-transition-timing-func),
+    background var(--time-transition) var(--how-transition-timing-func);
 
   cursor: pointer;
 }
@@ -927,9 +1001,9 @@ input {
   fill: currentColor;
 
   transition:
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity var(--time-transition) var(--how-transition-timing-func),
+    visibility var(--time-transition) var(--how-transition-timing-func),
+    color var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal input[type="checkbox"] + .checkbox-custom .checkbox-icon {
@@ -979,7 +1053,7 @@ input {
   background: var(--modal-send-btn-bg);
   box-shadow: 0px 4px 4px 0px #00000026;
 
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--time-transition) var(--how-transition-timing-func);
 }
 
 .modal__send-btn:hover,
