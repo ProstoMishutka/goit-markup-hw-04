@@ -8,6 +8,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
     />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -37,6 +40,15 @@
             </li>
           </ul>
         </address>
+        <button
+          class="menu__toggle js-open-menu"
+          aria-expanded="false"
+          aria-controls="mobile__menu"
+        >
+          <svg class="menu__toggle-icon" width="32" height="22">
+            <use href="./image/icons.svg#charm_menu-hamburger"></use>
+          </svg>
+        </button>
       </div>
     </header>
     <main>
@@ -44,12 +56,12 @@
       <section class="portfolio">
         <div class="portfolio-container container">
           <h1 class="visually-hidden">Portfolio</h1>
-          <ul class="portfolio-filter">
-            <li><button class="portfolio-button" type="button">All</button></li>
-            <li><button class="portfolio-button" type="button">Web Site</button></li>
-            <li><button class="portfolio-button" type="button">App</button></li>
-            <li><button class="portfolio-button" type="button">Design</button></li>
-            <li><button class="portfolio-button" type="button">Marketing</button></li>
+          <ul class="portfolio-filter card-set">
+            <li><button class="portfolio-button card-set-item" type="button">All</button></li>
+            <li><button class="portfolio-button card-set-item" type="button">Web Site</button></li>
+            <li><button class="portfolio-button card-set-item" type="button">App</button></li>
+            <li><button class="portfolio-button card-set-item" type="button">Design</button></li>
+            <li><button class="portfolio-button card-set-item" type="button">Marketing</button></li>
           </ul>
           <!-- Portfolio cards -->
           <ul class="portfolio-list card-set">
@@ -260,30 +272,30 @@
         <!-- Footer social media -->
         <div class="footer-social">
           <h2 class="footer-title">Social media</h2>
-          <ul class="footer-list">
+          <ul class="footer-list card-set">
             <li class="footer-list-item">
-              <a href="" class="footer-icon">
+              <a href="" class="footer-icon card-set-item">
                 <svg width="24" height="24" role="img" aria-label="Instagram icon">
                   <use href="./image/icons.svg#instagram"></use>
                 </svg>
               </a>
             </li>
             <li class="footer-list-item">
-              <a href="" class="footer-icon">
+              <a href="" class="footer-icon card-set-item">
                 <svg width="24" height="24" role="img" aria-label="Twitter icon">
                   <use href="./image/icons.svg#twitter"></use>
                 </svg>
               </a>
             </li>
             <li class="footer-list-item">
-              <a href="" class="footer-icon">
+              <a href="" class="footer-icon card-set-item">
                 <svg width="24" height="24" role="img" aria-label="Facebook icon">
                   <use href="./image/icons.svg#facebook"></use>
                 </svg>
               </a>
             </li>
             <li class="footer-list-item">
-              <a href="" class="footer-icon">
+              <a href="" class="footer-icon card-set-item">
                 <svg width="24" height="24" role="img" aria-label="Linkedin icon">
                   <use href="./image/icons.svg#linkedin"></use>
                 </svg>
@@ -314,5 +326,39 @@
         </form>
       </div>
     </footer>
+
+    <!-- Mobile Menu -->
+    <div class="menu__container js-menu-container" id="mobile__menu">
+      <button class="menu__toggle-close-btn js-close-menu">
+        <svg class="menu__toggle-close-icon" width="8" height="8">
+          <use href="./image/icons.svg#x-close"></use>
+        </svg>
+      </button>
+
+      <ul class="mobile__menu">
+        <li>
+          <a href="./index.html" class="mobile__menu-link">Studio</a>
+        </li>
+        <li>
+          <a href="./portfolio.html" class="mobile__menu-link active">Portfolio</a>
+        </li>
+        <li>
+          <a href="" class="mobile__menu-link">Contacts</a>
+        </li>
+      </ul>
+
+      <address class="mobile__address">
+        <a class="mobile__address-tel" href="tel:+110001111111">+11 (000) 111-11-11</a>
+        <a class="mobile__address-email" href="mailto:info@devstudio.com">info@devstudio.com</a>
+      </address>
+    </div>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="js/mobile-menu.js"></script>
   </body>
 </html>
